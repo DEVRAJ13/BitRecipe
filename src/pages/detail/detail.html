@@ -1,0 +1,65 @@
+<ion-header no-border>
+  <ion-navbar>
+
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content fullscreen parallax-header>
+ <div class="header-image"></div>
+ <ion-card>
+    <ion-card-header style="font-style: oblique;">Sandy’s Chocolate Cake</ion-card-header>
+
+    <ion-card-content>
+ <p style="font-size: 10px;">Total Time
+  Prep: 30 min. Bake: 30 min. + cooling</p>
+
+
+  
+    <h6 style="height: 25px;
+    font-size: 13px;
+    padding-top: 4px;
+    margin-top: 14px;
+    margin-bottom: 10px;" text-uppercase>Ingredients</h6>
+  <ion-row>
+    <ion-col col-6 *ngFor="let item of cards" text-wrap style="   padding: 5px;">
+  
+          <p  style="font-size: 12px;">1 cup butter, softened</p>
+   
+    </ion-col>
+  </ion-row>
+
+  <h6 style="height: 25px;
+  font-size: 13px;
+  padding-top: 4px;
+  margin-top: 14px;
+  margin-bottom: 10px;" text-uppercase>Frosting</h6>
+
+  <ion-row>
+    <ion-col col-6 *ngFor="let item of cards" text-wrap style="padding: 5px;">
+    
+         <p style="font-size: 12px;"> 3 ounces unsweetened chocolate, chopped</p>
+   
+    </ion-col>
+  </ion-row>
+
+  <h6 style="height: 25px;
+  font-size: 13px;
+  padding-top: 4px;
+  margin-top: 14px;
+  margin-bottom: 10px;" text-uppercase>Directions</h6>
+
+ <p style="font-size: 12px;" text-justify>{{discription}}</p>
+ 
+    <h6 style="height: 25px;
+    font-size: 13px;
+    padding-top: 4px;
+    margin-top: 14px;
+    margin-bottom: 10px;" text-uppercase>Nutrition Facts</h6>
+   
+   <p style="font-size: 12px;" text-justify>1 slice: 685 calories, 29g fat (18g saturated fat), 115mg cholesterol, 505mg sodium, 102g carbohydrate (81g sugars, 3g fiber), 7g protein.</p>
+ 
+  </ion-card-content>
+  </ion-card>
+ 
+
+  </ion-content>

@@ -11,7 +11,8 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
-
+/* Martin Wolf CodePen Standard */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 @import "ionic.globals";
 
 
@@ -52,7 +53,9 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$toolbar-background:	color($colors, light);
+$tabs-md-background: color($colors, light);
+$tabs-md-tab-color-active: color($colors, dark);
 
 
 
