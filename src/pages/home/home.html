@@ -1,15 +1,18 @@
 <!--
-  Generated template for the HomePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+ Writen By: DevRaj Thakur Thursday, 28 June 2018
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -17,101 +20,21 @@
   <ion-grid class="no-padding">
     <ion-row class="no-padding">
       <ion-col col-6 class="no-padding" *ngFor="let details of detail" (click)="goToDetail(details)">
-        <ion-card class="no-padding" style="border-radius: 5px;" >
+        <ion-card class="no-padding" style="border-radius: 5px;">
           <img style="height: 175px;" src="{{details.item_image}}" />
-          <ion-card-content class="no-padding" style="padding: 10px!important;">
-            <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;">
+          <ion-card-content class="no-padding">
+            <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;text-align: center;padding:5px;" Text-Capitalize>
               {{details.item_name}}
             </ion-card-title>
-            <p style="font-size:11px;">
-              {{details.discription}}
-            </p>
+            <ion-row style="margin-bottom: 10px;padding-right: 5px;">
+              <ion-col col-4 *ngFor="let total of details.total_time" class="no-padding" style="text-align: center;">
+                <p class="font-txt" text-uppercase> {{total.time_title}}
+                  <br>{{total.time_est}}&nbsp;min</p>
+              </ion-col>
+            </ion-row>
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-6 class="no-padding">
-        <ion-card class="no-padding" style="border-radius: 5px;">
-          <img style="height: 175px;" src="https://hips.hearstapps.com/del.h-cdn.co/assets/17/31/2048x1024/landscape-1501791674-delish-chicken-curry-horizontal.jpg?resize=768:*"
-          />
-          <ion-card-content class="no-padding" style="padding: 10px!important;">
-            <ion-card-title style="font-size:12px; font-style: bold;font-style: oblique;">
-              Rajma
-            </ion-card-title>
-            <p style="font-size:11px;">
-              Main. Kidney beans & assorted spices.
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-
-    <ion-row class="no-padding">
-      <ion-col col-6 class="no-padding">
-        <ion-card class="no-padding" style="border-radius: 5px;">
-          <img style="height: 175px;" src="https://hips.hearstapps.com/del.h-cdn.co/assets/17/31/2048x1024/landscape-1501791674-delish-chicken-curry-horizontal.jpg?resize=768:*"
-          />
-          <ion-card-content class="no-padding" style="padding: 10px!important;">
-            <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;">
-              Rajma
-            </ion-card-title>
-            <p style="font-size:11px;">
-              Main. Kidney beans & assorted spices.
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6 class="no-padding">
-        <ion-card class="no-padding" style="border-radius: 5px;">
-          <img style="height: 175px;" src="http://paperlief.com/images/bakery-food-items-wallpaper-4.jpg" />
-          <ion-card-content class="no-padding" style="padding: 10px!important;">
-            <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;">
-              Hari mutter ka nimona (green peas daal)
-            </ion-card-title>
-            <p style="font-size:11px;">
-              Main course. Chick peas, assorted spices, wheat flour and yeast for bhatura. Main course. Chick peas, assorted spices, wheat
-              flour and yeast for bhatura.
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-    </ion-row>
-
-
-
-
-    <ion-row class="no-padding">
-      <ion-col col-6 class="no-padding">
-        <ion-card class="no-padding" style="border-radius: 5px;">
-          <img style="height: 175px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHMMoYm_wdNhFCg02DrBR46dCS1O-VpDbyu0OQ9uiqgVXytF92JQ"
-          />
-          <ion-card-content class="no-padding" style="padding: 10px!important;">
-            <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;">
-              Olan (dish)
-            </ion-card-title>
-            <p style="font-size:11px;">
-              Light and subtle-flavored Kerala dish prepared from white gourd, ash-gourd or black-eyed peas, coconut milk and ginger seasoned
-              with coconut oil.
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6 class="no-padding">
-        <ion-card class="no-padding" style="border-radius: 5px;">
-          <img style="height: 175px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbUQM2DytVJdYhg14wyFcix2iR_ArJJGe7SsRCDSqWUyG894WY"
-          />
-          <ion-card-content class="no-padding" style="padding: 10px!important;">
-            <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;">
-              Aloo gobi
-            </ion-card-title>
-            <p style="font-size:11px;">
-              Cauliflower with potatoes sautéed with garam masala, turmeric, sometimes kalonji and curry leaves.
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
     </ion-row>
   </ion-grid>
 

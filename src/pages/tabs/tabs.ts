@@ -18,5 +18,5 @@ export class TabsPage {
   tab2Root = 'CategoryPage';
   tab3Root = 'AddPage';
   tab4Root = 'ProfilePage';
-  tab5Root = 'AboutPage';
+  tab5Root = 'ContactPage';
 }
