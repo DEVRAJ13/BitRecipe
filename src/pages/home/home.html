@@ -14,17 +14,20 @@
 
 
 <ion-content>
+
+
+
   <ion-grid class="no-padding">
     <ion-row class="no-padding">
-      <ion-col col-6 class="no-padding" *ngFor="let details of detail" (click)="goToDetail(details)">
+      <ion-col col-6 class="no-padding" *ngFor="let post of posts | async" (click)="goToDetail(post)">
         <ion-card class="no-padding" style="border-radius: 5px;">
-          <img style="height: 175px;" src="{{details.item_image}}" />
+          <img style="height: 175px;" src="{{post.item_image}}" />
           <ion-card-content class="no-padding">
             <ion-card-title style="font-size:14px; font-style: bold;font-style: oblique;text-align: center;padding:5px;" Text-Capitalize>
-              {{details.item_name}}
+              {{post.item_name}}
             </ion-card-title>
             <ion-row style="margin-bottom: 10px;padding-right: 5px;">
-              <ion-col col-4 *ngFor="let total of details.total_time" class="no-padding" style="text-align: center;">
+              <ion-col col-4 *ngFor="let total of post.total_time" class="no-padding" style="text-align: center;">
                 <p class="font-txt" text-uppercase> {{total.time_title}}
                   <br>{{total.time_est}}&nbsp;min</p>
               </ion-col>

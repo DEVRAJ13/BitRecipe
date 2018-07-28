@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 interface Post {
-  title: string;
-  content: string;
+  discription: string;
+  ingredients: string;
+  item_image: string;
+  nutrition_facts: string;
+  time_est: string;
+  time_title: string;
+  item_name:string;
 }
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,14 +24,21 @@ interface Post {
   templateUrl: 'home.html',
 })
 export class HomePage {
+ 
   postsCol: AngularFirestoreCollection<Post>;
   posts: Observable<Post[]>;
 
 
   
-  constructor(public navCtrl: NavController,private afs: AngularFirestore, public navParams: NavParams) {
-    // console.log("my data"+ this.detail );
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afs: AngularFirestore) {
+    this.postsCol = this.afs.collection('recipes');
+    this.posts = this.postsCol.valueChanges();
   }
+
+
+
+
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
@@ -42,9 +51,6 @@ export class HomePage {
   }
 
 
-  ngOnInit() {
-    this.postsCol = this.afs.collection('posts');
-    this.posts = this.postsCol.valueChanges();
-  }
+
 
 }
