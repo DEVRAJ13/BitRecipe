@@ -20,7 +20,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class DetailPage {
   tabBarElement: any;
   category: string = 'gear';
-  discription: any;
+  description: any;
   title: any;
   image_url: any;
   ingredient: any;
@@ -33,7 +33,7 @@ export class DetailPage {
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
 
     this.data = navParams.get("data");
-    this.discription = this.data.discription;
+    this.description = this.data.description;
     this.title = this.data.item_name;
     this.image_url = this.data.item_image;
     this.time = this.data.total_time;

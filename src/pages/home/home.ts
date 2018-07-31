@@ -9,12 +9,13 @@ import { map } from 'rxjs/operators';
 
 
 interface Post {
-  discription: string;
+  description: string;
   ingredients: string;
   item_image: string;
   nutrition_facts: string;
   time_est: string;
   time_title: string;
+  total_time:string;
   item_name:string;
 }
 

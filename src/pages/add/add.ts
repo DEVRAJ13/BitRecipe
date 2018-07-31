@@ -9,12 +9,13 @@ import { map } from 'rxjs/operators';
 
 
 interface Post {
-  discription: string;
+  description: string;
   ingredients: string;
   item_image: string;
   nutrition_facts: string;
   time_est: string;
   time_title: string;
+  total_time: string;
   item_name: string;
 }
 
@@ -27,30 +28,65 @@ export class AddPage {
   postsCol: AngularFirestoreCollection<Post>;
   posts: Observable<Post[]>;
 
-  user = { description: '', username: '', email: '', phone: '', website: '', address: { street: '', suite: '', city: '', zipcode: '', geo: { lat: '', lng: '' } }, company: { name: '', bs: '', catchPhrase: '' } };
+
   public anArray: any = [];
   public anInArray: any = [];
 
   public descriptionArray: any = [];
   public ingredientsArray: any = [];
+  public timeArray: any = [];
 
-  data = {}
+  data: any;
+  total_time: any;
   constructor(public navCtrl: NavController, private afs: AngularFirestore, public navParams: NavParams) {
+    this.data = {
+      "item_image": '',
+      "nutrition_facts": '',
+      "item_name": '',
+      "time_one": '',
+      "title_one": '',
+      "time_two": '',
+      "title_two": '',
+      "time_three": '',
+      "title_three": '',
+    }
+
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPage');
   }
 
-  goTo() {
+  goTo(data) {
+    this.timeArray = [{
+      time_title: 'Prep',
+      time_est: this.data.time_one
+    }, {
+      time_title: 'Cook',
+      time_est: this.data.time_two
+    }, {
+      time_title: 'Ready In',
+      time_est: this.data.time_two
+    }];
+
     for (var i = 0; i < this.anArray.length; i++) {
       this.descriptionArray.push(this.anArray[i].value);
     }
     for (var i = 0; i < this.anInArray.length; i++) {
       this.ingredientsArray.push(this.anInArray[i].value);
     }
-    console.log("Description::",this.descriptionArray);
-    console.log("Ingredients::",this.ingredientsArray);
+
+
+    this.afs.collection('recipes').add({
+      'description': this.descriptionArray,
+      'ingredients': this.ingredientsArray,
+      'item_image': this.data.item_image,
+      'nutrition_facts': this.data.nutrition_facts,
+      'total_time': this.timeArray,
+      'item_name': this.data.item_name,
+    });
   }
 
 
@@ -62,6 +98,10 @@ export class AddPage {
     this.anInArray.push({ 'value': '' });
   }
 
+  // total_time = [{
+  //   time_est:
+  //   time_title:
+  // }]
 
   // addPost() {
   //   this.afs.collection('recipes').add({

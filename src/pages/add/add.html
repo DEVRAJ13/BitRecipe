@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header *navbar>
+<ion-header>
 
   <ion-navbar>
     <ion-title>Add Recipes</ion-title>
@@ -23,11 +23,48 @@
   <ion-input type="text" placeholder="Ingredient" text-left  [(ngModel)]="anInArray[idx].value"></ion-input>
 </ion-item>
 
+<ion-item>
+  <ion-input type="text" placeholder="image url" text-left  [(ngModel)]="data.item_image"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-input type="text" placeholder="nutrition facts" text-left  [(ngModel)]="data.nutrition_facts"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-input type="text" placeholder="Name" text-left  [(ngModel)]="data.item_name"></ion-input>
+</ion-item>
+<!---->
+<ion-item>
+  <ion-input type="text" placeholder="time title" text-left  [(ngModel)]="data.title_one"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-input type="text" placeholder="time" text-left  [(ngModel)]="data.time_one"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-input type="text" placeholder="time title two" text-left  [(ngModel)]="data.title_two"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-input type="text" placeholder="time" text-left  [(ngModel)]="data.time_two"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-input type="text" placeholder="time title three" text-left  [(ngModel)]="data.title_three"></ion-input>
+</ion-item>
+
+
+<ion-item>
+  <ion-input type="text" placeholder="time" text-left  [(ngModel)]="data.time_three"></ion-input>
+</ion-item>
+
 
 <button ion-button   (click)="AddDescription()">Add More</button>
 
 <button ion-button   (click)="AddIngredient()">Add More 2</button>
-<button ion-button full  (click)="goTo()" >let's go</button>
+<button ion-button full  (click)="goTo(data)" >let's go</button>
 <!-- 
 <ion-card *ngIf="data">
 <ion-item *ngFor="let att of anArray;">
