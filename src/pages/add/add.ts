@@ -68,7 +68,7 @@ export class AddPage {
       time_est: this.data.time_two
     }, {
       time_title: 'Ready In',
-      time_est: this.data.time_two
+      time_est: this.data.time_three
     }];
 
     for (var i = 0; i < this.anArray.length; i++) {
