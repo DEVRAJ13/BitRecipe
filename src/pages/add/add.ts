@@ -25,13 +25,11 @@ interface Post {
   templateUrl: 'add.html',
 })
 export class AddPage {
+  tabBarElement: any;
   postsCol: AngularFirestoreCollection<Post>;
   posts: Observable<Post[]>;
-
-
   public anArray: any = [];
   public anInArray: any = [];
-
   public descriptionArray: any = [];
   public ingredientsArray: any = [];
   public timeArray: any = [];
@@ -39,6 +37,7 @@ export class AddPage {
   data: any;
   total_time: any;
   constructor(public navCtrl: NavController, private afs: AngularFirestore, public navParams: NavParams) {
+    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     this.data = {
       "item_image": '',
       "nutrition_facts": '',
@@ -50,10 +49,18 @@ export class AddPage {
       "time_three": '',
       "title_three": '',
     }
-
-
-
   }
+
+  ionViewWillEnter() {
+    this.tabBarElement.style.display = 'none';
+  }
+ 
+  ionViewWillLeave() {
+    this.tabBarElement.style.display = 'flex';
+  }
+ 
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPage');
@@ -78,7 +85,6 @@ export class AddPage {
       this.ingredientsArray.push(this.anInArray[i].value);
     }
 
-
     this.afs.collection('recipes').add({
       'description': this.descriptionArray,
       'ingredients': this.ingredientsArray,
@@ -87,6 +93,15 @@ export class AddPage {
       'total_time': this.timeArray,
       'item_name': this.data.item_name,
     });
+    this.navCtrl.setRoot("HomePage");
+  }
+
+  RemoveDescription(index) {
+    this.anArray.splice(index, 1);
+  }
+
+  RemoveIngredient(index) {
+    this.anInArray.splice(index, 1);
   }
 
 
@@ -98,6 +113,8 @@ export class AddPage {
     this.anInArray.push({ 'value': '' });
   }
 
+
+  
   // total_time = [{
   //   time_est:
   //   time_title:

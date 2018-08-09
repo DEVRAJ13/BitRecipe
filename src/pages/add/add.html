@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>Add Recipes</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="goTo(data)">
+         SAVE
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,11 +20,108 @@
 
 <ion-content padding>
 
-  <ion-item *ngFor="let att of anArray; let idx = index">
-    <ion-input type="text" placeholder="Description" text-left  [(ngModel)]="anArray[idx].value"></ion-input>
-</ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-item class="main-box-input">
+        <ion-input class="input-txt" type="text" placeholder="Name" text-left [(ngModel)]="data.item_name"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
-<ion-item *ngFor="let attt of anInArray; let idx = index">
+
+  <ion-row>
+    <ion-col>
+      <ion-item class="main-box-input">
+        <ion-input class="input-txt" type="text" placeholder="URL Image" text-left [(ngModel)]="data.item_image"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+
+  <ion-row *ngFor="let att of anArray; let idx = index">
+    <ion-col col-11>
+      <ion-item class="main-box-input">
+        <ion-input class="input-txt" type="text" placeholder="Description" text-left [(ngModel)]="anArray[idx].value"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-1 style="text-align: center;display: block;">
+      <div (click)="RemoveDescription(idx)">
+        <ion-icon style="font-size: 33px;color: #bbbbbb;padding-top: 8px;" name="remove-circle"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row (click)="AddDescription()" style="margin-left: 16px;">
+    <ion-col col-1>
+      <ion-icon style="font-size: 33px;color: #bbbbbb;padding-top: 5px;float: right;" name="add-circle"></ion-icon>
+    </ion-col>
+    <ion-col col-11 style="padding-top: 19px;
+    font-weight: 500;
+    color: #bbbbbb;">
+      ADD DESCRIPTION
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row *ngFor="let attt of anInArray; let idx = index">
+    <ion-col col-11>
+      <ion-item class="main-box-input">
+        <ion-input class="input-txt" type="text" placeholder="Ingredient" text-left [(ngModel)]="anInArray[idx].value"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-1 style="text-align: center;display: block;">
+      <div (click)="RemoveIngredient(idx)">
+        <ion-icon style="font-size: 33px;color: #bbbbbb;padding-top: 8px;" name="remove-circle"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row (click)="AddIngredient()" style="margin-left: 16px;">
+    <ion-col col-1>
+      <ion-icon style="font-size: 33px;color: #bbbbbb;padding-top: 5px;float: right;" name="add-circle"></ion-icon>
+    </ion-col>
+    <ion-col col-11 style="padding-top: 19px;
+      font-weight: 500;
+      color: #bbbbbb;">
+      ADD INGREDIENT
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+      <ion-col>
+        <ion-item class="main-box-input">
+          <ion-input class="input-txt" type="text" placeholder="Nutrition Facts" text-left [(ngModel)]="data.nutrition_facts"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    
+  <ion-row>
+      <ion-col col-3>
+        <ion-item class="main-box-input">
+          <ion-input class="input-txt" type="text" placeholder="00" text-left [(ngModel)]="data.time_one"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <ion-item class="main-box-input">
+          <ion-input class="input-txt" type="text" placeholder="00" text-left [(ngModel)]="data.time_two"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <ion-item class="main-box-input">
+          <ion-input class="input-txt" type="text" placeholder="00" text-left [(ngModel)]="data.time_three"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+
+
+
+
+  <!-- <ion-item *ngFor="let attt of anInArray; let idx = index">
   <ion-input type="text" placeholder="Ingredient" text-left  [(ngModel)]="anInArray[idx].value"></ion-input>
 </ion-item>
 
@@ -34,7 +136,7 @@
 <ion-item>
   <ion-input type="text" placeholder="Name" text-left  [(ngModel)]="data.item_name"></ion-input>
 </ion-item>
-<!---->
+
 <ion-item>
   <ion-input type="text" placeholder="time title" text-left  [(ngModel)]="data.title_one"></ion-input>
 </ion-item>
@@ -64,71 +166,7 @@
 <button ion-button   (click)="AddDescription()">Add More</button>
 
 <button ion-button   (click)="AddIngredient()">Add More 2</button>
-<button ion-button full  (click)="goTo(data)" >let's go</button>
-<!-- 
-<ion-card *ngIf="data">
-<ion-item *ngFor="let att of anArray;">
-  <div class="card-title">{{att.value}}</div>
-</ion-item>AddIngredients
-</ion-card> -->
-    <!-- <h2>Add User</h2>
-    <form (ngSubmit)="saveUser()">
-      <ion-item>
-        <ion-label>Discription</ion-label>
-        <ion-input type="text" [(ngModel)]="user.discription" name="discription"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Username</ion-label>
-        <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Email</ion-label>
-        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Phone</ion-label>
-        <ion-input type="text" [(ngModel)]="user.phone" name="phone"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Website</ion-label>
-        <ion-input type="url" [(ngModel)]="user.website" name="website"></ion-input>
-      </ion-item>
-      <ion-item-divider color="light">Address</ion-item-divider>
-      <ion-item>
-        <ion-label>Street</ion-label>
-        <ion-input type="text" [(ngModel)]="user.address.street" name="street"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Suite</ion-label>
-        <ion-input type="text" [(ngModel)]="user.address.suite" name="suite"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>City</ion-label>
-        <ion-input type="text" [(ngModel)]="user.address.city" name="city"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Zip Code</ion-label>
-        <ion-input type="text" [(ngModel)]="user.address.zipcode" name="zipcode"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Geo</ion-label>
-        <ion-input type="text" [(ngModel)]="user.address.geo.lat" name="lat" placeholder="Latitude"></ion-input>
-        <ion-input type="text" [(ngModel)]="user.address.geo.lng" name="lng" placeholder="Longitude"></ion-input>
-      </ion-item>
-      <ion-item-divider color="light">Company</ion-item-divider>
-      <ion-item>
-        <ion-label>Name</ion-label>
-        <ion-input type="text" [(ngModel)]="user.company.name" name="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Business</ion-label>
-        <ion-input type="text" [(ngModel)]="user.company.bs" name="bs"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Catch Phrase</ion-label>
-        <ion-input type="text" [(ngModel)]="user.company.catchPhrase" name="catchPhrase"></ion-input>
-      </ion-item>
-      <button ion-button type="submit" block>Add User</button>
-    </form> -->
+<button ion-button full  (click)="goTo(data)" >let's go</button> -->
+
 
 </ion-content>
